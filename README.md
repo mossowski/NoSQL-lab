@@ -5,6 +5,7 @@
 # Table of content
 - [Zadanie 1](#zad1)
     - [1a](#1a)
+    - [1b](#1b)
   
 
 # Zadanie 1
@@ -20,3 +21,14 @@
 ```
 
 ### 1a
+
+```bash
+ time mongoimport --type csv -c Train --file Train2.csv --headerline
+ 
+ real   16m36.446s
+ user   1m38.714s
+ sys    0m34.831s
+ ```
+ 
+ ### 1b
+  

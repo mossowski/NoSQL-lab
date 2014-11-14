@@ -29,6 +29,14 @@
  user   1m38.714s
  sys    0m34.831s
 ```
+
+```bash
+ time psql -d postgres -c "copy train(Id,Title,Body,Tags) from '/home/marcin/Downloads/Train.csv' with delimiter ',' csv header;"
+ 
+ real   13m43.682s
+ user   0m0.058s
+ sys    0m0.042s
+```
  
 ### 1b
 

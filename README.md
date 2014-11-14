@@ -28,7 +28,13 @@
  real   16m36.446s
  user   1m38.714s
  sys    0m34.831s
- ```
+```
  
- ### 1b
+### 1b
+
+```bash
+  db.Train.count();
+  
+  6034195
+```
   

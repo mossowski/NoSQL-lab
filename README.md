@@ -40,9 +40,9 @@
 ```bash
  time psql -d postgres -c "copy train(Id,Title,Body,Tags) from '/home/marcin/Downloads/Train.csv' with delimiter ',' csv header;"
  
- real   13m43.682s
- user   0m0.058s
- sys    0m0.042s
+ real   32m3.404s
+ user   0m0.102s
+ sys    0m0.085s
 ```
  
 ### 1b

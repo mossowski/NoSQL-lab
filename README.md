@@ -201,6 +201,20 @@ Wyszukać w sieci dane zawierające obiekty GeoJSON. Następnie dane zapisać w 
 
 Dla zapisanych danych przygotować co najmniej 6 różnych geospatial queries (w tym, co najmniej po jednym, dla obiektów Point, LineString i Polygon).
 
+```bash
+db.places.find(
+    { 
+        loc: 
+        { $near : 
+          {
+              $geometry: { type: "Point", coordinates: [0,0] }, 
+              $maxDistance: 10000000 
+          } 
+        } 
+    }
+)
+```
+
 
 
   

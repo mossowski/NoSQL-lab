@@ -216,5 +216,17 @@ db.places.find(
 ```
 [Wynik](https://github.com/mossowski/NoSQL-lab/blob/master/places/places1.geojson)
 
-
+```bash
+db.places.find(
+    { 
+        loc: 
+        { $geoWithin: 
+          { 
+              $polygon: [ [ -77,30], [-72,30], [-75,45] ]  
+          }
+        }           
+    }
+)
+```
+[Wynik](https://github.com/mossowski/NoSQL-lab/blob/master/places/places2.geojson)
   

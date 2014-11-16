@@ -58,6 +58,35 @@ PostgreSQL 9.3.5
  user   0m0.102s
  sys    0m0.085s
 ```
+
+Ilość miejsca zajmowanego przez kolekcje:
+
+MongoDB
+
+```bash
+   show dbs
+   
+   train 13.947GB
+```
+
+PostgreSQL
+
+Bez indeksów:
+```bash
+   select pg_size_pretty(pg_relation_size('train'));
+   
+   pg_size_pretty 
+   ----------------
+   9851 MB
+```
+Z indeksami:
+```bash
+   select pg_size_pretty(pg_total_relation_size('train'));
+   
+   pg_size_pretty 
+   ----------------
+   11 GB
+```
  
 ### 1b
 Zliczyć liczbę zaimportowanych rekordów (Odpowiedź: powinno ich być 6_034_195).
@@ -168,5 +197,10 @@ Porównanie kolekcji:
 ```
 
 ### 1d
+Wyszukać w sieci dane zawierające obiekty GeoJSON. Następnie dane zapisać w bazie MongoDB.
+
+Dla zapisanych danych przygotować co najmniej 6 różnych geospatial queries (w tym, co najmniej po jednym, dla obiektów Point, LineString i Polygon).
+
+
 
   

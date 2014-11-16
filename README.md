@@ -2,11 +2,16 @@
 
 ----
 
+Wersja MongoDB Production Release (2.6.5) oraz Development Release (2.8.0-rc0)
+Wersja PostgreSQL 9.3.5
+
+
 # Table of content
 - [Zadanie 1](#zad1)
     - [1a](#1a)
     - [1b](#1b)
     - [1c](#1c)
+    - [1d](#1d)
   
 
 # Zadanie 1
@@ -34,6 +39,7 @@ Polega na zaimportowaniu, do systemów baz danych uruchomionych na swoim kompute
   *  MongoDB
   *  PostgreSQL
 
+MongoDB Production Release (2.6.5)
 
 ```bash
  time mongoimport --type csv -c train --file Train2.csv --headerline
@@ -42,6 +48,8 @@ Polega na zaimportowaniu, do systemów baz danych uruchomionych na swoim kompute
  user   1m38.714s
  sys    0m34.831s
 ```
+
+PostgreSQL 9.3.5
 
 ```bash
  time psql -d postgres -c "copy train(Id,Title,Body,Tags) from '/home/marcin/Downloads/Train.csv' with delimiter ',' csv header;"
@@ -158,5 +166,7 @@ Porównanie kolekcji:
 	]
 }
 ```
+
+### 1d
 
   

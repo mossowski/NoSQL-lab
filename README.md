@@ -214,7 +214,7 @@ db.places.find(
     }
 )
 ```
-
+[Wynik](https://github.com/mossowski/NoSQL-lab/blob/master/places/places1.geojson)
 
 
   

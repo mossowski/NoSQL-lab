@@ -2,8 +2,8 @@
 
 ----
 
-Wersja MongoDB Production Release (2.6.5) oraz Development Release (2.8.0-rc0)
-Wersja PostgreSQL 9.3.5
+* Wersja MongoDB Production Release (2.6.5) oraz Development Release (2.8.0-rc0)
+* Wersja PostgreSQL 9.3.5
 
 
 # Table of content

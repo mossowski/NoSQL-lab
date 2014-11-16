@@ -1,0 +1,11 @@
+{"_id":"Oakland",  loc:{"type":"Point","coordinates":[-122.270833,37.804444]}}
+{"_id":"Cambridge", loc:{"type":"Point","coordinates":[-71.110556,42.373611]}}
+{"_id":"New York City", loc:{"type":"Point","coordinates":[-73.938611,40.664167]}}
+{"_id":"Kansas City", loc:{"type":"Point","coordinates":[-94.57855,39.099725]}}
+{"_id":"Miami", loc:{"type":"Point","coordinates":[-80.224145,25.787676]}}
+{"_id":"Las Vegas", loc:{"type":"Point","coordinates":[-115.136389,36.175]}}
+{"_id":"San Francisco", loc:{"type":"Point","coordinates":[-122.416667,37.783333]}}
+{"_id":"Washington", loc:{"type":"Point","coordinates":[-77.036667,38.895111]}}
+{"_id":"Pittsburgh", loc:{"type":"Point","coordinates":[-80,40.441667]}}
+{"_id":"Philadelphia", loc:{"type":"Point","coordinates":[-75.17,39.95]}}
+

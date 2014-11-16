@@ -11,7 +11,7 @@
 
 # Zadanie 1
 
-### Preparing data for mongoDB
+### Przygotowanie danych dla mongoDB
 
 ```bash 
  time cat Train.csv | tr "\n" " " | tr "\r" "\n" | head -n 6034196 > Train2.csv
@@ -71,19 +71,81 @@ W tym zadaniu należy napisać program, który to zrobi. W przypadku MongoDB nal
   Time: 62m48s
 ```
 
-Comparison of the collection:
+Do rozwiązania zadania napisałem program w Javie i użyłem sterownika Java MongoDB Driver.
+
+```bash
+import java.net.UnknownHostException;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBCursor;
+import com.mongodb.MongoClient;
+
+public class Mongo {
+
+	public static void main(String[] args) throws UnknownHostException {
+
+       String tagsArray[];
+        Map<String, Boolean> uniqueTags = new HashMap<String, Boolean>();
+        int allTags = 0;
+        long timeEnd;
+        long timeStart = System.currentTimeMillis()/1000;
+        
+        MongoClient mongoClient = new MongoClient("localhost", 27017);
+        DB db = mongoClient.getDB("test");     
+        DBCollection collecion = db.getCollection("train");
+        DBCursor cursor = collecion.find();
+        
+        try 
+        {
+            while(cursor.hasNext()) 
+            {
+                BasicDBObject dbObject = (BasicDBObject)cursor.next();
+                tagsArray = dbObject.getString("tags").split(" ");
+                dbObject.put("tags", tagsArray);
+                collecion.save(dbObject);
+
+                allTags += tagsArray.length;
+                
+                for(int i=0; i<tagsArray.length; i++) 
+                {
+                    if(uniqueTags.get(tagsArray[i]) == null)
+                        uniqueTags.put(tagsArray[i], true);
+                }
+            }          
+        } 
+        finally 
+        {
+            cursor.close();
+        }
+        
+        timeEnd = System.currentTimeMillis()/1000;
+        
+        System.out.println("Time: " + (timeEnd-timeStart)/60 + "m" + (timeEnd-timeStart)%60 + "s");
+        System.out.println("All tags: " + allTags);
+        System.out.println("Unique tags: " + uniqueTags.size());
+        
+        mongoClient.close();
+    }
+}
+```
+
+Porównanie kolekcji:
 
 ```bash
   db.train.findOne();
   
-  {
+{
     "_id" : 1,
     "Title" : "How to check if an uploaded file is an image without mime type?",
     "Body" : "<p>I'd like to check if an uploaded file is an image file (e.g png, jpg, jpeg, gif, bmp) or another file. The problem is that I'm using Uploadify to upload the files, which changes the mime type and gives a 'text/octal' or something as the mime type, no matter which file type you upload.</p>  <p>Is there a way to check if the uploaded file is an image apart from checking the file extension using PHP?</p> ",
     "Tags" : "php image-processing file-upload upload mime-types"
 }
   
-  {
+{
 	"_id" : 1,
 	"title" : "How to check if an uploaded file is an image without mime type?",
 	"body" : "<p>I'd like to check if an uploaded file is an image file (e.g png, jpg, jpeg, gif, bmp) or another file. The problem is that I'm using Uploadify to upload the files, which changes the mime type and gives a 'text/octal' or something as the mime type, no matter which file type you upload.</p>  <p>Is there a way to check if the uploaded file is an image apart from checking the file extension using PHP?</p> ",

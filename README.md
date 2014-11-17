@@ -258,4 +258,42 @@ db.places.find(
 )
 ```
 [Wynik](https://github.com/mossowski/NoSQL-lab/blob/master/places/places3.geojson)
-  
+
+###Przykład 4: $near
+
+#### Zapytanie
+```bash
+db.places.find(
+    { 
+        loc: 
+        { $near : 
+          {
+              $geometry: { type: "Point", coordinates: [-95,39] }, 
+              $minDistance: 2000000 
+          } 
+        } 
+    }
+)
+```
+[Wynik](https://github.com/mossowski/NoSQL-lab/blob/master/places/places4.geojson)
+
+###Przykład 5: $geoWithin
+
+#### Zapytanie
+```bash
+db.places.find(
+    { 
+        loc: 
+        { $geoWithin: 
+          { 
+              $geometry: 
+              { 
+                  "type" : "Polygon", 
+                  "coordinates" : [ [ [-125,39],[-110,39],[-110,33],[-125,33],[-125,39] ] ]   
+              }  
+          }
+        }           
+    }
+)
+```
+[Wynik](https://github.com/mossowski/NoSQL-lab/blob/master/places/places5.geojson)

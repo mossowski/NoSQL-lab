@@ -3,9 +3,8 @@
   { "type": "FeatureCollection",
     "features": [
       { "type": "Feature",
-        "geometry": {"type": "Point", "coordinates": [102.0, 0.5]},
-        "properties": {"prop0": "value0"}
-        },
+        "geometry": {"type": "Point", "coordinates": [102.0, 0.5]}
+      },
       { "type": "Feature",
          "geometry": {
            "type": "Polygon",
@@ -13,11 +12,7 @@
              [ [100.0, 0.0], [101.0, 0.0], [101.0, 1.0],
                [100.0, 1.0], [100.0, 0.0] ]
              ]
-         },
-         "properties": {
-           "prop0": "value0",
-           "prop1": {"this": "that"}
-           }
          }
-       ]
-     }
+      }
+    ]
+  }

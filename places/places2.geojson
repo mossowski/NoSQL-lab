@@ -4,7 +4,7 @@
      "geometry": { "_id" : "Philadelphia", "type" : "Point", "coordinates" : [ -75.17, 39.95 ] }
    },
    { "type": "Feature",
-     "geometry": { "type" : "Polygon", "coordinates" : [ [ -77,30], [-72,30], [-75,45] ] } 
+     "geometry": { "type" : "Polygon", "coordinates" : [ [ [ -77.30], [-72.30], [-75.45] ] ] } 
    }
  ]
 }

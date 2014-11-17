@@ -1,0 +1,14 @@
+{"type": "FeatureCollection",
+ "features": [
+   { "type": "Feature",
+     "geometry": { "_id" : "Miami", "type" : "Point", "coordinates" : [ -80.224145, 25.787676 ] }
+   },
+   { "type": "Feature",
+     "geometry": { "_id" : "New York City", "type" : "Point", "coordinates" : [ -73.938611, 40.664167 ] }
+   },
+   { "type": "Feature",
+     "geometry": { "type" : "LineString", "coordinates" : [ [-73.938611,40.664167] , [-80.224145,25.787676] ] } 
+   }
+ ]
+}
+

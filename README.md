@@ -201,6 +201,10 @@ Wyszukać w sieci dane zawierające obiekty GeoJSON. Następnie dane zapisać w 
 
 Dla zapisanych danych przygotować co najmniej 6 różnych geospatial queries (w tym, co najmniej po jednym, dla obiektów Point, LineString i Polygon).
 
+
+###Przykład 1: $near
+
+#### Zapytanie
 ```bash
 db.places.find(
     { 
@@ -216,6 +220,10 @@ db.places.find(
 ```
 [Wynik](https://github.com/mossowski/NoSQL-lab/blob/master/places/places1.geojson)
 
+
+###Przykład 2: $geoWithin
+
+#### Zapytanie
 ```bash
 db.places.find(
     { 
@@ -229,4 +237,25 @@ db.places.find(
 )
 ```
 [Wynik](https://github.com/mossowski/NoSQL-lab/blob/master/places/places2.geojson)
+
+###Przykład 3: $geoIntersects
+
+#### Zapytanie
+```bash
+db.places.find(
+    { 
+        loc: 
+        { $geoIntersects: 
+          { 
+              $geometry: 
+              { 
+                  "type": "LineString", 
+                  "coordinates": [ [-73.938611,40.664167] , [-80.224145,25.787676] ] 
+              }  
+          }
+        }           
+    }
+)
+```
+[Wynik](https://github.com/mossowski/NoSQL-lab/blob/master/places/places3.geojson)
   

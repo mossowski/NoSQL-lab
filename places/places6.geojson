@@ -1,0 +1,14 @@
+{"type": "FeatureCollection",
+ "features": [
+   { "type": "Feature",
+     "geometry": { "_id" : "Kansas City", "type" : "Point", "coordinates" : [ -94.57855, 39.099725 ] }
+   },
+   { "type": "Feature",
+     "geometry": { "_id" : "Las Vegas", "type" : "Point", "coordinates" : [ -115.136389, 36.175 ] }
+   },
+   { "type": "Feature",
+     "geometry": { "type" : "LineString", "coordinates" : [ [-94.57855, 39.099725] , [-115.136389, 36.175] ] } 
+   }
+ ]
+}
+

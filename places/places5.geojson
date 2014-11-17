@@ -1,0 +1,21 @@
+{ "type": "FeatureCollection",
+    "features": [
+        { "type": "Feature",
+          "geometry": {"_id" : "San Francisco", "type": "Point", "coordinates": [ -122.416667, 37.783333 ] }
+        },
+        { "type": "Feature",
+          "geometry": {"_id" : "Oakland", "type": "Point", "coordinates": [ -122.270833, 37.804444 ] }
+        },
+        { "type": "Feature",
+          "geometry": {"_id" : "Las Vegas", "type": "Point", "coordinates": [ -115.136389, 36.175 ] }
+        },
+      { "type": "Feature",
+         "geometry": {
+           "type": "Polygon",
+           "coordinates": [
+             [ [-125,39],[-110,39],[-110,33],[-125,33],[-125,39] ]
+           ]
+         }
+      }
+    ]
+}

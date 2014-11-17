@@ -1,8 +1,7 @@
 { "type": "FeatureCollection",
     "features": [
         { "type": "Feature",
-          "geometry": {"_id" : "Philadelphia", "type": "Point", "coordinates": [ -75.17, 39.95 ]},
-          "properties": {"prop0": "value0"}
+          "geometry": {"_id" : "Philadelphia", "type": "Point", "coordinates": [ -75.17, 39.95 ]}
         },
       { "type": "Feature",
          "geometry": {
@@ -11,11 +10,7 @@
              [ [-77.0, 36.0], [-77.0, 36.0], [-70.0, 36.0],
                [-70.0, 43.0] ]
              ]
-         },
-         "properties": {
-           "prop0": "value0",
-           "prop1": {"this": "that"}
-           }
+         }
          }
        ]
      }

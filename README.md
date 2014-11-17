@@ -42,7 +42,7 @@ Polega na zaimportowaniu, do systemów baz danych uruchomionych na swoim kompute
 MongoDB Production Release (2.6.5)
 
 ```bash
- time mongoimport --type csv -c train --file Train2.csv --headerline
+ time mongoimport --type csv -d train -c train --file Train2.csv --headerline
  
  real   16m36.446s
  user   1m38.714s

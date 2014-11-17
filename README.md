@@ -297,3 +297,24 @@ db.places.find(
 )
 ```
 [Wynik](https://github.com/mossowski/NoSQL-lab/blob/master/places/places5.geojson)
+
+###Przykład 6: $geoIntersects
+
+#### Zapytanie
+```bash
+db.places.find(
+    { 
+        loc: 
+        { $geoIntersects: 
+          { 
+              $geometry: 
+              { 
+                  "type": "LineString", 
+                  "coordinates": [ [-94.57855, 39.099725] , [-115.136389, 36.175] ] 
+              }  
+          }
+        }           
+    }
+)
+```
+[Wynik](https://github.com/mossowski/NoSQL-lab/blob/master/places/places6.geojson)

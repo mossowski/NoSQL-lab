@@ -108,6 +108,8 @@ W tym zadaniu należy napisać program, który to zrobi. W przypadku MongoDB nal
   Time: 62m48s
 ```
 
+### Mongo
+
 Do rozwiązania zadania napisałem program w Javie i użyłem sterownika Java MongoDB Driver.
 
 ```bash
@@ -194,6 +196,17 @@ Porównanie kolekcji:
 		"mime-types"
 	]
 }
+```
+### Postgres
+
+Tworzymy tabele:
+```bash
+  CREATE TABLE train(id integer, title text, body text, tags text);
+```
+  
+Zamiana tagów:  
+```bash  
+  time psql -d postgres -c "ALTER TABLE train ALTER COLUMN tags TYPE TEXT[] using string_to_array(tags,'');"
 ```
 
 ### 1d

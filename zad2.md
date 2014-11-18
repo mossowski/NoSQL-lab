@@ -81,3 +81,53 @@ Czas:
   sys	  0m0.030s
 ```
 Wykres:
+
+## Agregacja 2 - 10 najbardziej dislikujących użytkowników 
+
+Agregacja:
+```bash
+  coll.aggregate(
+    { $match: { "modelName": "movies", "action": "Disliked"}},
+    { $group: {_id: "$userId", count: {$sum: 1}} },
+    { $sort: {count: -1} },
+    { $limit: 10}
+  );
+```
+
+Wynik:
+```json
+    { "_id" : "danceswithflowers", "count" : 968 },
+    { "_id" : "andrew_warner", "count" : 1010 },
+    { "_id" : "s34rchnd3str0y", "count" : 1054 },
+    { "_id" : "kevinjloria", "count" : 1219 },
+    { "_id" : "zeus1661ou","count" : 1460},
+    { "_id" : "amanda_hauser", "count" : 1497 },
+    { "_id" : "brownbagcomics", "count" : 1807 },
+    { "_id" : "Ang", "count" : 1884 },
+    { "_id" : "Carlson1931", "count" : 2134 },
+    { "_id" : "Xendeus", "count" : 2576 }
+```
+Czas:
+```bash
+ real	3m17.094s
+ user	0m0.056s
+ sys	0m0.036s
+```
+Wykres:
+
+## Agregacja 3
+
+Agregacja:
+```bash
+
+```
+
+Wynik:
+```json
+  
+```
+Czas:
+```bash
+ 
+```
+Wykres:

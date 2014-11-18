@@ -96,16 +96,16 @@ Agregacja:
 
 Wynik:
 ```json
-    { "_id" : "danceswithflowers", "count" : 968 },
-    { "_id" : "andrew_warner", "count" : 1010 },
-    { "_id" : "s34rchnd3str0y", "count" : 1054 },
-    { "_id" : "kevinjloria", "count" : 1219 },
-    { "_id" : "zeus1661ou","count" : 1460},
-    { "_id" : "amanda_hauser", "count" : 1497 },
-    { "_id" : "brownbagcomics", "count" : 1807 },
-    { "_id" : "Ang", "count" : 1884 },
-    { "_id" : "Carlson1931", "count" : 2134 },
-    { "_id" : "Xendeus", "count" : 2576 }
+    { "_id" : "danceswithflowers", "count" :  968 },
+    { "_id" : "andrew_warner",     "count" : 1010 },
+    { "_id" : "s34rchnd3str0y",    "count" : 1054 },
+    { "_id" : "kevinjloria",       "count" : 1219 },
+    { "_id" : "zeus1661ou",        "count" : 1460 },
+    { "_id" : "amanda_hauser",     "count" : 1497 },
+    { "_id" : "brownbagcomics",    "count" : 1807 },
+    { "_id" : "Ang",               "count" : 1884 },
+    { "_id" : "Carlson1931",       "count" : 2134 },
+    { "_id" : "Xendeus",           "count" : 2576 }
 ```
 Czas:
 ```bash
@@ -115,19 +115,70 @@ Czas:
 ```
 Wykres:
 
-## Agregacja 3
+## Agregacja 3 - 10 reżyserów mających najwięcej filmów
 
 Agregacja:
 ```bash
-
+ coll.aggregate( 
+   { $match: { "modelName": "movies"} },
+   { $group: {_id: {"dir": "$director", id: "$title"}, count: {$sum: 1}} },
+   { $group: {_id: "$_id.dir" , count: {$sum: 1}} },
+   { $sort: {count: -1} },
+   { $limit: 10} 
+ );
 ```
 
 Wynik:
 ```json
-  
+   {" _id" : "steven spielberg",  "count" : 41   },
+   {" _id" : "john ford",         "count" : 42   },
+   {" _id" : "ingmar bergman",    "count" : 42   },
+   {" _id" : "jesus franco",      "count" : 43   },
+   {" _id" : "takashi miike",     "count" : 43   },
+   {" _id" : "woody allen",       "count" : 47   },
+   {" _id" : "michael curtiz",    "count" : 48   },
+   {" _id" : "alfred hitchcock",  "count" : 50   },
+   {" _id" : "various directors", "count" : 54   },
+   {" _id" : "not available",     "count" : 1474 }
 ```
 Czas:
 ```bash
- 
+   real	  6m14.168s
+   user	  0m0.059s
+   sys	  0m0.029s
+
+```
+Wykres:
+
+## Agregacja 4 - ilość wystąpień każdej z akcji
+
+Agregacja:
+```bash
+   coll.aggregate(
+     { $group: {_id: "$action", count: {$sum: 1}} },
+     { $sort: {count: -1} }
+   );
+```
+
+Wynik:
+```json
+    { "_id" : "Checkin",      "count" : 10958039 },
+    { "_id" : "Liked",        "count" : 7664733  },
+    { "_id" : "Disliked",     "count" : 469093   },
+    { "_id" : "Favorited",    "count" : 288096   },
+    { "_id" : "Unwanted",     "count" : 270330   },
+    { "_id" : "Saved",        "count" : 101944   },
+    { "_id" : "Said",         "count" : 73887    },
+    { "_id" : "Looked",       "count" : 2972     },
+    { "_id" : "Comment",      "count" : 2150     },
+    { "_id" : null,           "count" : 40       },
+    { "_id" : "Reply",        "count" : 15       },
+    { "_id" : "LikedComment", "count" : 1        }
+```
+Czas:
+```bash
+   real	  3m13.166s
+   user	  0m0.054s
+   sys	  0m0.029s
 ```
 Wykres:

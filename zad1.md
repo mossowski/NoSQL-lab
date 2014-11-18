@@ -54,9 +54,9 @@ PostgreSQL 9.3.5
 ```bash
  time psql -d postgres -c "copy train(Id,Title,Body,Tags) from '/home/marcin/Downloads/Train.csv' with delimiter ',' csv header;"
  
- real   32m3.404s
- user   0m0.102s
- sys    0m0.085s
+ real   21m5.697s
+ user   0m0.205s
+ sys    0m0.097s
 ```
 
 Ilość miejsca zajmowanego przez kolekcje:
@@ -110,67 +110,7 @@ W tym zadaniu należy napisać program, który to zrobi. W przypadku MongoDB nal
 
 ### Mongo
 
-Do rozwiązania zadania napisałem program w Javie i użyłem sterownika Java MongoDB Driver.
-
-```bash
-import java.net.UnknownHostException;
-import java.util.HashMap;
-import java.util.Map;
-
-import com.mongodb.BasicDBObject;
-import com.mongodb.DB;
-import com.mongodb.DBCollection;
-import com.mongodb.DBCursor;
-import com.mongodb.MongoClient;
-
-public class Mongo {
-
-	public static void main(String[] args) throws UnknownHostException {
-
-       String tagsArray[];
-        Map<String, Boolean> uniqueTags = new HashMap<String, Boolean>();
-        int allTags = 0;
-        long timeEnd;
-        long timeStart = System.currentTimeMillis()/1000;
-        
-        MongoClient mongoClient = new MongoClient("localhost", 27017);
-        DB db = mongoClient.getDB("test");     
-        DBCollection collecion = db.getCollection("train");
-        DBCursor cursor = collecion.find();
-        
-        try 
-        {
-            while(cursor.hasNext()) 
-            {
-                BasicDBObject dbObject = (BasicDBObject)cursor.next();
-                tagsArray = dbObject.getString("tags").split(" ");
-                dbObject.put("tags", tagsArray);
-                collecion.save(dbObject);
-
-                allTags += tagsArray.length;
-                
-                for(int i=0; i<tagsArray.length; i++) 
-                {
-                    if(uniqueTags.get(tagsArray[i]) == null)
-                        uniqueTags.put(tagsArray[i], true);
-                }
-            }          
-        } 
-        finally 
-        {
-            cursor.close();
-        }
-        
-        timeEnd = System.currentTimeMillis()/1000;
-        
-        System.out.println("Time: " + (timeEnd-timeStart)/60 + "m" + (timeEnd-timeStart)%60 + "s");
-        System.out.println("All tags: " + allTags);
-        System.out.println("Unique tags: " + uniqueTags.size());
-        
-        mongoClient.close();
-    }
-}
-```
+Do rozwiązania zadania napisałem [program](https://github.com/mossowski/NoSQL-lab/blob/master/scripts/Mongo.java) w Javie i użyłem sterownika Java MongoDB Driver.
 
 Porównanie kolekcji:
 
@@ -207,6 +147,10 @@ Tworzymy tabele:
 Zamiana tagów:  
 ```bash  
   time psql -d postgres -c "ALTER TABLE train ALTER COLUMN tags TYPE TEXT[] using string_to_array(tags,'');"
+  
+  real	5m17.310s
+  user	0m0.080s
+  sys	0m0.094s
 ```
 
 ### 1d

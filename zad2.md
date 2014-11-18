@@ -82,6 +82,7 @@ Czas:
   sys	  0m0.030s
 ```
 Wykres:
+
 ![1](https://github.com/mossowski/NoSQL-lab/blob/master/images/1.png)
 
 ## Agregacja 2 - 10 najbardziej dislikujących użytkowników 
@@ -117,6 +118,7 @@ Czas:
  sys	0m0.036s
 ```
 Wykres:
+
 ![2](https://github.com/mossowski/NoSQL-lab/blob/master/images/2.png)
 
 ## Agregacja 3 - 10 reżyserów mających najwięcej filmów
@@ -154,7 +156,8 @@ Czas:
 
 ```
 Wykres:
-![3](https://github.com/mossowski/NoSQL-lab/blob/master/images/3.png)
+
+![3](https://github.com/mossowski/NoSQL-lab/blob/master/images/3.jpg)
 
 ## Agregacja 4 - ilość wystąpień każdej z akcji
 
@@ -189,4 +192,5 @@ Czas:
    sys	  0m0.029s
 ```
 Wykres:
+
 ![4](https://github.com/mossowski/NoSQL-lab/blob/master/images/4.png)

@@ -48,13 +48,22 @@ MongoDB Production Release (2.6.5)
  user   1m38.714s
  sys    0m34.831s
 ```
+Mongo Development Release (2.8.0-rc0)
+
+```bash
+ time mongoimport --type csv -d train -c train --file Train2.csv --headerline
+ 
+ real	14m25.389s
+ user	1m29.517s
+ sys	0m31.985s
+```
 
 PostgreSQL 9.3.5
 
 ```bash
  time psql -d postgres -c "copy train(Id,Title,Body,Tags) from '/home/marcin/Downloads/Train.csv' with delimiter ',' csv header;"
  
- real   21m5.697s
+ real   19m5.697s
  user   0m0.205s
  sys    0m0.097s
 ```

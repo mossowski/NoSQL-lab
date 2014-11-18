@@ -60,6 +60,7 @@ Agregacja:
     { $limit: 10}
   );
 ```
+[Skrypt](https://github.com/mossowski/NoSQL-lab/blob/master/scripts/1.js)
 
 Wynik:
 ```json
@@ -81,6 +82,7 @@ Czas:
   sys	  0m0.030s
 ```
 Wykres:
+![1](https://github.com/mossowski/NoSQL-lab/blob/master/images/1.png)
 
 ## Agregacja 2 - 10 najbardziej dislikujących użytkowników 
 
@@ -93,6 +95,7 @@ Agregacja:
     { $limit: 10}
   );
 ```
+[Skrypt](https://github.com/mossowski/NoSQL-lab/blob/master/scripts/2.js)
 
 Wynik:
 ```json
@@ -114,6 +117,7 @@ Czas:
  sys	0m0.036s
 ```
 Wykres:
+![2](https://github.com/mossowski/NoSQL-lab/blob/master/images/2.png)
 
 ## Agregacja 3 - 10 reżyserów mających najwięcej filmów
 
@@ -127,6 +131,7 @@ Agregacja:
    { $limit: 10} 
  );
 ```
+[Skrypt](https://github.com/mossowski/NoSQL-lab/blob/master/scripts/3.js)
 
 Wynik:
 ```json
@@ -149,6 +154,7 @@ Czas:
 
 ```
 Wykres:
+![3](https://github.com/mossowski/NoSQL-lab/blob/master/images/3.png)
 
 ## Agregacja 4 - ilość wystąpień każdej z akcji
 
@@ -159,6 +165,7 @@ Agregacja:
      { $sort: {count: -1} }
    );
 ```
+[Skrypt](https://github.com/mossowski/NoSQL-lab/blob/master/scripts/4.js)
 
 Wynik:
 ```json
@@ -182,3 +189,4 @@ Czas:
    sys	  0m0.029s
 ```
 Wykres:
+![4](https://github.com/mossowski/NoSQL-lab/blob/master/images/4.png)

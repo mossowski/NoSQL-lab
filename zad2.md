@@ -30,18 +30,54 @@ Przykładowy dokument:
 }
 ```
 
+# Import do MongoDB
+
+```bash
+  time mongoimport -d imdb -c imdb --type json --file getglue_sample.json
+ 
+  real	  40m25.199s
+  user    5m26.882s
+  sys	  1m31.029s
+```
+
 Sprawdzenie:
 ```bash
   db.imdb.count()
   19831300
 ```
 
-# Import do MongoDB
+# Agregacje
 
+## Agregacja 1 - 10 najpopularniejszych filmów 
+
+
+Agregacja:
 ```bash
-  time mongoimport -d imdb -c imdb --type json --file getglue_sample.json
-
-  real	40m25.199s
-  user	5m26.882s
-  sys	1m31.029s
+  coll.aggregate(
+    { $match: { "modelName": "movies" } },
+    { $group: {_id: "$title", count: {$sum: 1} } },
+    { $sort: {count: -1} },
+    { $limit: 10}
+  );
 ```
+
+Wynik:
+```json
+    { "_id" : "The Twilight Saga: Breaking Dawn Part 1",       "count" : 87521 },
+    { "_id" : "The Hunger Games",                              "count" : 79340 },
+    { "_id" : "Marvel's The Avengers",                         "count" : 64356 },
+    { "_id" : "Harry Potter and the Deathly Hallows: Part II", "count" : 33680 },
+    { "_id" : "The Muppets",                                   "count" : 29002 },
+    { "_id" : "Captain America: The First Avenger",            "count" : 28406 },
+    { "_id" : "Avatar",                                        "count" : 23238 },
+    { "_id" : "Thor",                                          "count" : 23207 },
+    { "_id" : "The Hangover",                                  "count" : 22709 },
+    { "_id" : "Titanic",                                       "count" : 20791 }
+```
+Czas:
+```bash
+  real	  3m15.473s
+  user	  0m0.053s
+  sys	  0m0.030s
+```
+Wykres:

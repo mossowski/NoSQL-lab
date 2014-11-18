@@ -18,13 +18,8 @@
 
 ### Przygotowanie danych dla mongoDB
 
-```bash 
- time cat Train.csv | tr "\n" " " | tr "\r" "\n" | head -n 6034196 > Train2.csv
+Użyłem [skryptu](https://github.com/mossowski/NoSQL-lab/blob/master/scripts/prepare.sh)
 
- real   2m23.399s
- user   0m51.452s
- sys    1m23.592s
-```
 ```bash 
  time ./prepare.sh Train.csv Train2.csv
 
@@ -112,8 +107,8 @@ Zliczyć liczbę zaimportowanych rekordów (Odpowiedź: powinno ich być 6_034_1
 W tym zadaniu należy napisać program, który to zrobi. W przypadku MongoDB należy użyć jednego ze sterowników ze  strony MongoDB Ecosystem. W przypadku PostgreSQL – należy to zrobić w jakikolwiek sposób.
 
 ```bash
-  All tags: 18862976
-  Unique tags: 74275
+  All tags: 17409994
+  Unique tags: 42048
   Time: 62m48s
 ```
 

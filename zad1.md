@@ -109,7 +109,16 @@ W tym zadaniu należy napisać program, który to zrobi. W przypadku MongoDB nal
 ```bash
   All tags: 17409994
   Unique tags: 42048
+```
+
+MongoDB Production Release (2.6.5)
+```bash
   Time: 62m48s
+```
+
+Mongo Development Release (2.8.0-rc0)
+```bash
+  Time: 54m52s
 ```
 
 ### Mongo
